@@ -20,9 +20,14 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
-      message: "hello Vue",
+      toDoes: {
+        text: "Andare a fare la spesa",
+        done: true,
+      },
     };
   },
+
+  methods: {},
 });
 
 app.mount("#app");

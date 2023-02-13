@@ -38,14 +38,27 @@
         <div class="container">
           <a class="navbar-brand" href="#">
             <img
-              src="/docs/5.2/assets/brand/bootstrap-logo.svg"
+              src="https://www.creativefabrica.com/wp-content/uploads/2021/12/01/Labrador-retriever-dog-logo-Graphics-21030048-1.jpg"
               alt="Bootstrap"
-              width="30"
-              height="24"
+              height="50"
             />
           </a>
         </div>
       </nav>
+      <main>
+        <div class="container">
+          <ul class="list-group my-5">
+            <li
+              v-if="toDoes.done == true"
+              :class="'its-done'"
+              class="list-group-item"
+            >
+              {{toDoes.text}}
+            </li>
+            <li v-else class="list-group-item">{{toDoes.text}}</li>
+          </ul>
+        </div>
+      </main>
     </div>
   </body>
 </html>
