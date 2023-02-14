@@ -47,15 +47,36 @@
       </nav>
       <main>
         <div class="container">
-          <ul class="list-group my-5">
+
+          <div class="input-group mb-3 mt-5">
+            <input 
+            v-model="newTodo.text"
+            type="text"
+            class="form-control" placeholder="New ToDo" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button 
+            @click="addTodo()"
+            class="btn btn-outline-secondary" 
+            type="button" 
+            id="button-addon2">
+            ADD todo
+          </button>
+
+          </div>
+
+          <ul class="list-group my-5 ">
             <li
-              v-if="toDoes.done == true"
-              :class="'its-done'"
-              class="list-group-item"
-            >
-              {{toDoes.text}}
+              v-for="(todo, todoIndex)  in todoList"
+              class="list-group-item d-flex"
+              :class="(todo.done) ? 'its-done' : '' ">
+              {{todoIndex +1 }} ) {{todo.text}}
+              <button 
+              @click=" removeTodo(todoIndex)"
+              type="button"
+              class="btn btn-danger ms-auto">
+              <i class="fa fa-times" ></i></button>
             </li>
-            <li v-else class="list-group-item">{{toDoes.text}}</li>
+           
+            </li>
           </ul>
         </div>
       </main>

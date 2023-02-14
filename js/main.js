@@ -20,14 +20,37 @@ const { createApp } = Vue;
 const app = createApp({
   data() {
     return {
-      toDoes: {
-        text: "Andare a fare la spesa",
-        done: true,
+      todoList: [
+        {
+          text: "Fare la spesa",
+          done: true,
+        },
+        {
+          text: "Andare dal dottore",
+          done: false,
+        },
+      ],
+
+      newTodo: {
+        text: "",
+        done: false,
       },
     };
   },
 
-  methods: {},
+  methods: {
+    addTodo() {
+      newTodoCopy = {
+        text: this.newTodo.text,
+        done: false,
+      };
+      this.todoList.push(newTodoCopy);
+    },
+    removeTodo(index) {
+      //   console.log(index);
+      this.todoList.splice(index, 1);
+    },
+  },
 });
 
 app.mount("#app");
